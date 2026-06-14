@@ -39,6 +39,7 @@ defmodule MergeSort do
     |> improved_merge()
   end
 
+#found this code online to keep the code in order
   def time_it(fun) do
     start = System.monotonic_time(:microsecond)
     result = fun.()
