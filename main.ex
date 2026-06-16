@@ -17,7 +17,7 @@ defmodule MergeSort do
     |> merge_queue()
   end
 
-  defp merge_queue([single]), do
+  defp merge_queue([single]) do
     single
   end
 
@@ -26,11 +26,11 @@ defmodule MergeSort do
     merge_queue(rest ++ [merged])
   end
 
-  defp merge_two([], b), do
+  defp merge_two([], b) do
     b
   end
 
-  defp merge_two(a, []), do
+  defp merge_two(a, []) do
     a
   end
 
