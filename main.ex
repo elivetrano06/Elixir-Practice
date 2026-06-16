@@ -13,18 +13,27 @@ defmodule MergeSort do
 
   def improved_merge(arrays) do
     arrays
-    |> Enum.reject(&Enum.empty?/1)
+    |> Enum.reject(fn x -> Enum.empty?(x) end)
     |> merge_queue()
   end
 
-  defp merge_queue([single]), do: single
+  defp merge_queue([single]), do
+    single
+  end
+
   defp merge_queue([a, b | rest]) do
     merged = merge_two(a, b)
     merge_queue(rest ++ [merged])
   end
 
-  defp merge_two([], b), do: b
-  defp merge_two(a, []), do: a
+  defp merge_two([], b), do
+    b
+  end
+
+  defp merge_two(a, []), do
+    a
+  end
+
   defp merge_two([ha | ta], [hb | tb]) when ha <= hb do
     [ha | merge_two(ta, [hb | tb])]
   end
